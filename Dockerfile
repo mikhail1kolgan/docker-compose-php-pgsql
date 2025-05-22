@@ -1,6 +1,6 @@
 FROM php:7.4-apache
 
-# Установка системных библиотек
+# Установка библиотек PostgreSQL и MySQL
 RUN apt-get update && apt-get install -y \
     libpq-dev \
     default-mysql-client \
