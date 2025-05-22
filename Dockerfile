@@ -9,3 +9,12 @@ RUN apt-get update && apt-get install -y \
 
 # Включаем mod_rewrite (если нужно)
 RUN a2enmod rewrite
+
+# Копируем приложение в корень веб-сервера
+COPY ./www /var/www/html/
+
+# (Опционально) даём права www-data
+RUN chown -R www-data:www-data /var/www/html/
+
+# Открываем 80 порт (по умолчанию в php:apache)
+EXPOSE 80
